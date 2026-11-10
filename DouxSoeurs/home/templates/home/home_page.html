@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+
+<section class="banniere">
+    <img src="{% static "images/banniere.jpg" %}" alt="Sandrine et Lucie en train de pâtisser" class="banniere__image">
+    <h1 class="banniere__titre">Fait maison, avec amour et gourmandise</h1>
+</section>
+
+<section class="soeurs">
+    <figure class="soeur">
+        <img src="{% static "images/sandrine.jpg" %}" alt="Portrait de Sandrine" class="soeur__photo">
+        <figcaption>
+            <strong>Sandrine</strong><br>La passionnée de tradition
+        </figcaption>
+    </figure>
+
+    <figure class="soeur">
+        <img src="{% static "images/lucie.jpg" %}" alt="Portrait de Lucie" class="soeur__photo">
+        <figcaption>
+            <strong>Lucie</strong><br>La créative
+        </figcaption>
+    </figure>
+</section> 
+
+<section class="histoire">
+    <img src="{% static "images/histoire.jpg" %}" alt="Photo de famille autour de la pâtisserie" class="histoire__photo">
+
+    <div class="histoire__texte">
+        <h2>Une histoire de famille</h2>
+        <p>Texte à compléter : comment l'aventure a commencé...</p>
+        <p>Texte à compléter : ce qui nous rend uniques...</p>
+    </div>
+</section>
+
+<section class="actions">
+    <a href="/patisseries/" class="bouton">Découvrir nos pâtisseries</a>
+    <a href="/recettes/" class="bouton">Voir nos recettes</a>
+</section>
+{% endblock content %}

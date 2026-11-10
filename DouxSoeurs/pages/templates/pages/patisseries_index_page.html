@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags %}
+
+{% block body_class %}template-patisseries{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/patisseries.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="patisseries">
+    <h1 class="patisseries__titre">{{ page.title }}</h1>
+
+    <div class="patisseries__liste">
+        {# On répète une carte pour chaque pâtisserie envoyée par get_context #}
+        {% for patisserie in patisseries %}
+            <article class="carte">
+                {% if patisserie.photo %}
+                    {# Wagtail recadre l'image en 400x300 pixels #}
+                    {% image patisserie.photo fill-400x300 class="carte__photo" alt=patisserie.titre %}
+                {% endif %}
+                <h2 class="carte__titre">{{ patisserie.titre }}</h2>
+                <p class="carte__description">{{ patisserie.description }}</p>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

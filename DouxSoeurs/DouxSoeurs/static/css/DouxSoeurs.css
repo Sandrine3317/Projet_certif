@@ -1,0 +1,172 @@
+/* Réglages de base pour tout le site */
+* {
+    box-sizing: border-box;  /* la largeur inclut les marges internes : plus simple à calculer */
+}
+
+body {
+    margin: 0;               /* enlève l'espace blanc autour de la page */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;        /* espace entre les lignes : texte plus lisible */
+}
+
+img {
+    max-width: 100%;         /* une image ne dépasse jamais de son bloc */
+    height: auto;
+}
+
+.header__nav ul {
+    list-style: none;   /* enlève les puces */
+    display: flex;      /* met les liens côte à côte */
+    gap: 1rem;          /* espace entre les liens */
+    margin: 0;
+    padding: 0;
+}
+/* Header */
+.header {
+    display: flex;                   /* logo à gauche, menu à droite */
+    justify-content: space-between;  /* pousse les deux aux extrémités */
+    align-items: center;             /* les aligne verticalement */
+    padding: 1rem 2rem;
+    background-color: #fff5f7;       /* rose très clair */
+}
+
+.header__marque {
+    display: flex;                   /* logo et nom côte à côte */
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;           /* enlève le soulignement */
+    color: inherit;                  /* garde la couleur du texte */
+}
+
+.header__logo {
+    width: 60px;
+    height: auto;
+}
+
+.header__nom {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #5a2a3a;                  /* brun-rose foncé */
+}
+
+.header__nav a:hover {
+    text-decoration: underline;      /* souligne quand la souris passe dessus */
+}
+
+/* Bannière */
+.banniere {
+    position: relative;              /* permet de poser le titre PAR-DESSUS l'image */
+}
+
+.banniere__image {
+    display: block;                  /* enlève le petit espace sous l'image */
+    width: 100%;
+    aspect-ratio: 21 / 9;            /* la hauteur suit la largeur : même forme que ta photo */
+    object-fit: cover;               /* l'image remplit le cadre sans être déformée */
+    object-position: center;     /* garde le haut de l'image : pour voir les visages */
+}
+
+.banniere__titre {
+    margin: 0;                       /* enlève l'espace par défaut autour du h1 */
+    padding: 1.5rem 1rem;            /* espace au-dessus et en dessous du titre */
+    text-align: center;              /* centre le texte */
+    color: #5a2a3a;                  /* brun-rose foncé, comme le menu */
+}
+
+/* Les sœurs */
+.soeurs {
+    display: flex;                   /* les 2 portraits côte à côte */
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.soeur {
+    margin: 0;
+    text-align: center;
+}
+
+.soeur__photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 25%;     /* monte le cadrage : on voit les visages */
+    border-radius: 50%;              /* photo toute ronde */
+}
+
+/* Notre histoire */
+.histoire {
+    display: flex;
+    justify-content: center;         /* centre photo + texte dans la page */
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff5f7;
+}
+
+.histoire__photo {
+    width: 45%;
+    max-width: 600px;                /* la photo ne devient pas géante sur grand écran */
+    border-radius: 1rem;
+}
+
+.histoire__texte {
+    flex: 1;
+    max-width: 500px;                /* le texte reste facile à lire */
+}
+
+/* Boutons d'action */
+.actions {
+    display: flex;                   /* les boutons côte à côte */
+    justify-content: center;         /* centrés dans la page */
+    flex-wrap: wrap;                 /* passent à la ligne sur petit écran */
+    gap: 1.5rem;                     /* espace entre les boutons */
+    padding: 2rem;
+}
+
+.bouton {
+    padding: 0.75rem 2rem;           /* espace dans le bouton : haut/bas, gauche/droite */
+    background-color: #5a2a3a;       /* brun-rose foncé, comme le menu */
+    color: #fff;                     /* texte blanc */
+    text-decoration: none;           /* enlève le soulignage du lien */
+    font-weight: bold;
+    border-radius: 2rem;             /* bords très arrondis */
+}
+
+.bouton:hover {
+    background-color: #d4a5b0;       /* rose poudré quand la souris passe dessus */
+}
+.footer__coordonnees {
+    list-style: none;   /* enlève les puces */
+    display: flex;      /* met les éléments côte à côte */
+    flex-wrap: wrap;    /* passe à la ligne si pas assez de place */
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+/* Footer */
+.footer {
+    padding: 2rem;
+    background-color: #fff5f7;
+    text-align: center;              /* centre le texte */
+}
+
+.footer__signature {
+    margin: 0 0 1rem;                /* espace sous la signature */
+}
+
+.footer__coordonnees {
+    justify-content: center;         /* centre les éléments de la liste */
+}
+.footer a {
+    color: #d4a5b0;                  /* rose poudré */
+    text-decoration: none;           /* enlève le soulignage */
+}
+
+.footer a:hover {
+    text-decoration: underline;      /* souligne quand la souris passe dessus */
+}
