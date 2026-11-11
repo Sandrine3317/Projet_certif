@@ -62,21 +62,63 @@
 }
 
 .formulaire button {
+    display: block;                  /* le bouton occupe sa propre ligne */
+    margin: 1.5rem auto 0;           /* centré, avec de l'espace au-dessus */
     border: none;                    /* un <button> a une bordure par défaut */
     cursor: pointer;                 /* la main au survol */
     font-size: 1rem;
 }
 
+
+/* Coordonnées sous le formulaire */
 .contact__coordonnees {
     list-style: none;                /* enlève les puces */
-    display: flex;                   /* les coordonnées côte à côte */
-    flex-wrap: wrap;                 /* passent à la ligne si besoin */
-    justify-content: center;         /* centrées */
-    gap: 1rem;
-    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;          /* une coordonnée par ligne */
+    gap: 1.25rem;                    /* espace entre les lignes */
+    max-width: 320px;                /* colonne étroite, comme sur la maquette */
+    margin: 2rem auto;               /* centrée dans la page */
     padding: 0;
+}
+
+.contact__coordonnees li {
+    display: flex;                   /* icône à gauche, texte à droite */
+    align-items: center;             /* alignés verticalement */
+    gap: 1rem;
+}
+
+.contact__coordonnees li div {
+    display: flex;
+    flex-direction: column;          /* le libellé au-dessus de la valeur */
+}
+
+.contact__icone {
+    font-size: 1.5rem;               /* icône plus grande */
+}
+
+.contact__libelle {
+    font-weight: bold;               /* « Adresse », « Téléphone »… en gras */
+    color: #5a2a3a;
 }
 
 .contact__coordonnees a {
     color: #5a2a3a;
+    text-decoration: none;           /* pas de soulignage */
+}
+
+.contact__coordonnees a:hover {
+    color: #a8566b;                  /* rose au survol */
+}
+
+.contact__coeur {
+    margin: 0 0 1rem;
+    text-align: center;
+    color: #d4a5b0;                  /* rose poudré : décoratif seulement */
+}
+
+.contact__illustration {
+    display: block;                  /* enlève le petit espace sous l'image */
+    width: 100%;                     /* s'adapte à la largeur de l'écran */
+    max-width: 400px;                /* mais jamais plus grande que 400px */
+    margin: 2rem auto 0;             /* centrée, avec de l'espace au-dessus */
 }

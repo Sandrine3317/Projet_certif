@@ -15,19 +15,24 @@ img {
 }
 
 .header__nav ul {
-    list-style: none;   /* enlève les puces */
-    display: flex;      /* met les liens côte à côte */
-    gap: 1rem;          /* espace entre les liens */
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;                 /* les liens passent à la ligne si besoin */
+    justify-content: center;         /* menu centré */
+    gap: 2rem;                     /* un peu plus d'espace entre les liens */
+    font-size: 1.1rem;
     margin: 0;
     padding: 0;
 }
-/* Header */
+
 .header {
-    display: flex;                   /* logo à gauche, menu à droite */
-    justify-content: space-between;  /* pousse les deux aux extrémités */
-    align-items: center;             /* les aligne verticalement */
-    padding: 1rem 2rem;
-    background-color: #fff5f7;       /* rose très clair */
+    display: flex;
+    justify-content: space-between;  /* logo à gauche, menu à droite */
+    align-items: center;
+    gap: 2rem;
+    /* Le contenu ne dépasse jamais 1100px de large, centré (2rem minimum sur les côtés) */
+    padding: 1rem max(2rem, calc((100% - 1100px) / 2));
+    background-color: #fff5f7;
 }
 
 .header__marque {
@@ -44,7 +49,7 @@ img {
 }
 
 .header__nom {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -122,6 +127,11 @@ img {
 .histoire__texte {
     flex: 1;
     max-width: 500px;                /* le texte reste facile à lire */
+}
+
+.histoire__accroche {
+    font-weight: bold;               /* en gras */
+    color: #a8566b;                  /* rose soutenu : lisible sur le fond rose clair */
 }
 
 /* Boutons d'action */

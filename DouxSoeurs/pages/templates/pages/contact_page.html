@@ -11,17 +11,11 @@
 <section class="contact">
     <h1 class="contact__titre">{{ page.title }}</h1>
 
+        <p class="contact__coeur" aria-hidden="true">♥</p>
+
     {# Texte d'introduction écrit dans l'admin #}
     <div class="contact__intro">{{ page.intro|richtext }}</div>
     
-    {# Les mêmes coordonnées que le footer : modifiables dans Paramètres > Coordonnées #}
-    {% with coords=settings.pages.CoordonneesSettings %}
-    <ul class="contact__coordonnees">
-        {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
-        {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
-        {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
-    </ul>
-    {% endwith %}
     
     <form action="{% pageurl page %}" method="post" class="formulaire">
         {% csrf_token %}  {# protège le formulaire (obligatoire avec Django) #}
@@ -40,7 +34,33 @@
         {# Texte RGPD écrit dans l'admin #}
         <div class="formulaire__rgpd">{{ page.texte_rgpd|richtext }}</div>
 
-        <button type="submit" class="bouton">Envoyer</button>
+        <button type="submit" class="bouton">Envoyer le message ♥</button>
     </form>
+
+    {# Les mêmes coordonnées que le footer : modifiables dans Paramètres > Coordonnées #}
+    {% with coords=settings.pages.CoordonneesSettings %}
+        <ul class="contact__coordonnees">
+        {% if coords.adresse %}
+            <li>
+                <span class="contact__icone" aria-hidden="true">📍</span>
+                <div><span class="contact__libelle">Adresse</span> {{ coords.adresse }}</div>
+            </li>
+        {% endif %}
+        {% if coords.telephone %}
+            <li>
+                <span class="contact__icone" aria-hidden="true">📞</span>
+                <div><span class="contact__libelle">Téléphone</span> <a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></div>
+            </li>
+        {% endif %}
+        {% if coords.email %}
+            <li>
+                <span class="contact__icone" aria-hidden="true">✉️</span>
+                <div><span class="contact__libelle">E-mail</span> <a href="mailto:{{ coords.email }}">{{ coords.email }}</a></div>
+            </li>
+        {% endif %}
+    </ul>
+    {% endwith %}
+        {# Illustration décorative : alt vide, car elle n'apporte pas d'information #}
+    <img src="{% static 'images/cupcake.png' %}" alt="" class="contact__illustration">
 </section>
 {% endblock content %}
