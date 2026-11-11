@@ -1,6 +1,7 @@
 from django.db import models
 from wagtail.admin.panels import FieldPanel
-from wagtail.fields import RichTextField
+from wagtail import blocks
+from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey
@@ -78,13 +79,60 @@ class RecettePage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    # Texte avec mise en forme (listes, gras...)
-    ingredients = RichTextField(blank=True)
-    preparation = RichTextField(blank=True)
+    # Introduction courte de la recette
+    introduction = models.TextField(blank=True, verbose_name="Introduction")
+
+    # Informations pratiques
+    temps_preparation = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Temps de préparation (en minutes)",
+    )
+    portions = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Nombre de portions",
+    )
+    difficulte = models.CharField(
+        max_length=10,
+        blank=True,
+        choices=[("facile", "Facile"), ("moyen", "Moyen"), ("difficile", "Difficile")],
+        verbose_name="Difficulté",
+    )
+
+    # Ingrédients en blocs : des sous-titres et des listes d'ingrédients
+    ingredients = StreamField(
+        [
+            ("sous_titre", blocks.CharBlock(label="Sous-titre (ex : Pour la ganache)")),
+            ("liste", blocks.ListBlock(blocks.CharBlock(label="Ingrédient"), label="Liste d'ingrédients")),
+        ],
+        blank=True,
+    )
+
+    # Préparation en blocs : une étape = un bloc (numérotées automatiquement sur le site)
+    preparation = StreamField(
+        [
+            ("etape", blocks.RichTextBlock(features=["bold", "italic", "link"], label="Étape")),
+        ],
+        blank=True,
+    )
 
     # Les champs visibles dans l'admin
     content_panels = Page.content_panels + [
         FieldPanel("photo"),
+        FieldPanel("introduction"),
+        MultiFieldPanel(
+            [
+                FieldRowPanel(
+                    [
+                        FieldPanel("temps_preparation"),
+                        FieldPanel("portions"),
+                        FieldPanel("difficulte"),
+                    ]
+                ),
+            ],
+            heading="Informations pratiques",
+        ),
         FieldPanel("ingredients"),
         FieldPanel("preparation"),
     ]

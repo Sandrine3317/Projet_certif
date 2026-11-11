@@ -18,14 +18,50 @@
         {% image page.photo fill-800x500 class="fiche__photo" alt=page.title %}
     {% endif %}
 
+    {# Introduction de la recette #}
+    {% if page.introduction %}
+        <p class="fiche__intro">{{ page.introduction }}</p>
+    {% endif %}
+
+    {# Informations pratiques : affichées seulement si elles sont renseignées #}
+    {% if page.temps_preparation or page.portions or page.difficulte %}
+        <ul class="fiche__infos">
+            {% if page.temps_preparation %}
+                <li><span class="fiche__info-libelle">Temps de préparation</span> {{ page.temps_preparation }} min</li>
+            {% endif %}
+            {% if page.portions %}
+                <li><span class="fiche__info-libelle">Portions</span> {{ page.portions }}</li>
+            {% endif %}
+            {% if page.difficulte %}
+                <li><span class="fiche__info-libelle">Difficulté</span> {{ page.get_difficulte_display }}</li>
+            {% endif %}
+        </ul>
+    {% endif %}
+
     <section class="fiche__bloc">
         <h2>Ingrédients</h2>
-        {{ page.ingredients|richtext }}
+        {# Chaque bloc est soit un sous-titre, soit une liste d'ingrédients #}
+        {% for bloc in page.ingredients %}
+            {% if bloc.block_type == "sous_titre" %}
+                <h3 class="fiche__sous-titre">{{ bloc.value }}</h3>
+            {% else %}
+                <ul class="fiche__ingredients">
+                    {% for ingredient in bloc.value %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
     </section>
 
     <section class="fiche__bloc">
         <h2>Préparation</h2>
-        {{ page.preparation|richtext }}
+        {# Une étape = un élément de la liste numérotée #}
+        <ol class="fiche__etapes">
+            {% for etape in page.preparation %}
+                <li>{{ etape.value|richtext }}</li>
+            {% endfor %}
+        </ol>
     </section>
 </article>
 {% endblock content %}
