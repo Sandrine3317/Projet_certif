@@ -82,3 +82,14 @@
     margin-top: 0;                   /* pas d'espace au-dessus du titre du bloc */
     color: #5a2a3a;
 }
+
+/* Téléphone : écrans de 700px de large ou moins */
+@media (max-width: 700px) {
+    .vedette {
+        flex-direction: column;      /* photo au-dessus, texte en dessous */
+    }
+
+    .vedette__photo {
+        width: 100%;                 /* la photo prend toute la largeur */
+    }
+}

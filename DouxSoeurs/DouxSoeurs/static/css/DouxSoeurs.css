@@ -92,7 +92,7 @@ img {
 
 .soeur__photo {
     width: 200px;
-    height: 200px;
+    aspect-ratio: 1 / 1;             /* toujours aussi haute que large : un rond parfait */
     object-fit: cover;
     object-position: center 25%;     /* monte le cadrage : on voit les visages */
     border-radius: 50%;              /* photo toute ronde */
@@ -199,4 +199,28 @@ img {
     margin-bottom: 1.5rem;
     color: #5a2a3a;
     font-weight: bold;
+}
+
+/* Téléphone : écrans de 700px de large ou moins */
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;      /* logo au-dessus, menu en dessous */
+        gap: 0.75rem;                /* espace entre les deux */
+        padding: 1rem;
+    }
+
+    .header__nav ul {
+        flex-wrap: wrap;             /* les liens passent à la ligne si besoin */
+        justify-content: center;     /* centrés */
+    }
+
+        .histoire {
+        flex-direction: column;      /* photo au-dessus, texte en dessous */
+    }
+
+    .histoire__photo,
+    .histoire__texte {
+        width: 100%;                 /* chacun prend toute la largeur */
+        max-width: none;             /* annule la limite faite pour grand écran */
+    }
 }
