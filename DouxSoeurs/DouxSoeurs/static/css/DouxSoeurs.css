@@ -7,6 +7,16 @@ body {
     margin: 0;               /* enlève l'espace blanc autour de la page */
     font-family: Arial, sans-serif;
     line-height: 1.6;        /* espace entre les lignes : texte plus lisible */
+    background-color: #fffaf3;  /* ivoire très clair, à la place du blanc */
+}
+
+
+/* Titres : une police à empattements, plus élégante */
+h1,
+h2,
+h3,
+.header__nom {
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 img {

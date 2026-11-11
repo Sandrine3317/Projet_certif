@@ -26,14 +26,18 @@
         {% endwith %}
     {% endif %}
 
-    {# Les autres recettes : une carte par recette #}
+    {# Les autres recettes : un titre, puis une carte par recette #}
+    {% if recettes %}
+        <h2 class="recettes__sous-titre">Découvrez d'autres recettes</h2>
+    {% endif %}
+
     <div class="recettes__liste">
         {% for recette in recettes %}
             <article class="carte">
                 {% if recette.photo %}
                     {% image recette.photo fill-400x300 class="carte__photo" alt=recette.title %}
                 {% endif %}
-                <h2 class="carte__titre">{{ recette.title }}</h2>
+                <h3 class="carte__titre">{{ recette.title }}</h3>
                 <a href="{% pageurl recette %}" class="carte__lien">Voir la recette</a>
             </article>
         {% endfor %}

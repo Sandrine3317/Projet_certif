@@ -10,6 +10,12 @@
     color: #5a2a3a;
 }
 
+.recettes__sous-titre {
+    margin: 0 0 1.5rem;
+    text-align: center;
+    color: #5a2a3a;
+}
+
 /* Recette mise en valeur */
 .vedette {
     display: flex;                   /* photo à gauche, texte à droite */
