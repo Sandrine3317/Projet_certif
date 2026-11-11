@@ -66,3 +66,17 @@
     cursor: pointer;                 /* la main au survol */
     font-size: 1rem;
 }
+
+.contact__coordonnees {
+    list-style: none;                /* enlève les puces */
+    display: flex;                   /* les coordonnées côte à côte */
+    flex-wrap: wrap;                 /* passent à la ligne si besoin */
+    justify-content: center;         /* centrées */
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+.contact__coordonnees a {
+    color: #5a2a3a;
+}

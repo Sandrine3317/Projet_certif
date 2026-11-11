@@ -13,7 +13,16 @@
 
     {# Texte d'introduction écrit dans l'admin #}
     <div class="contact__intro">{{ page.intro|richtext }}</div>
-
+    
+    {# Les mêmes coordonnées que le footer : modifiables dans Paramètres > Coordonnées #}
+    {% with coords=settings.pages.CoordonneesSettings %}
+    <ul class="contact__coordonnees">
+        {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
+        {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
+        {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
+    </ul>
+    {% endwith %}
+    
     <form action="{% pageurl page %}" method="post" class="formulaire">
         {% csrf_token %}  {# protège le formulaire (obligatoire avec Django) #}
 

@@ -6,6 +6,7 @@ from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey
 from wagtail.admin.panels import FieldRowPanel, InlinePanel, MultiFieldPanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 
 class PatisseriesIndexPage(Page):
     def get_context(self, request, *args, **kwargs):
@@ -118,3 +119,28 @@ class ContactPage(AbstractEmailForm):
         ),
     ]
 
+@register_setting(icon="mail")  # apparaît dans l'admin : Paramètres > Coordonnées
+class CoordonneesSettings(BaseSiteSetting):
+    adresse = models.CharField(max_length=255, blank=True)
+    telephone = models.CharField(
+        max_length=20,
+        blank=True,
+        help_text="Format international sans espaces : +33600000000",
+    )
+    email = models.EmailField(blank=True)
+    instagram = models.URLField(blank=True)
+    facebook = models.URLField(blank=True)
+
+    panels = [
+        MultiFieldPanel(
+            [FieldPanel("adresse"), FieldPanel("telephone"), FieldPanel("email")],
+            heading="Coordonnées",
+        ),
+        MultiFieldPanel(
+            [FieldPanel("instagram"), FieldPanel("facebook")],
+            heading="Réseaux sociaux",
+        ),
+    ]
+
+    class Meta:
+        verbose_name = "Coordonnées"

@@ -41,12 +41,14 @@
             </a>
 
             <nav class="header__nav">
+            {% wagtail_site as current_site %}
                 <ul>
                     <li><a href="/">Accueil</a></li>
-                    <li><a href="/patisseries/">Nos pâtisseries</a></li>
-                    <li><a href="/recettes/">Nos recettes</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul>
+                    {# Les pages publiées avec « Afficher dans les menus » coché #}
+                    {% for item in current_site.root_page.get_children.live.in_menu %}
+                    <li><a href="{% pageurl item %}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul> 
             </nav>
         </header>
 
@@ -59,13 +61,16 @@
                 <strong>Doux-Sœurs sucrées</strong> • © {% now "Y" %} • <em>"Fait maison, avec amour"</em>
             </p>
 
-            <ul class="footer__coordonnees">
-                <li>Adresse à compléter</li> 
-                <li><a href="tel:0600000000">Téléphone</a></li>
-                <li><a href="mailto:contact@exemple.fr">E-mail</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            </ul>
+            {# Coordonnées modifiables dans l'admin : Paramètres > Coordonnées #}
+            {% with coords=settings.pages.CoordonneesSettings %}
+                <ul class="footer__coordonnees">
+                    {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
+                    {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
+                    {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
+                    {% if coords.instagram %}<li><a href="{{ coords.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a></li>{% endif %}
+                    {% if coords.facebook %}<li><a href="{{ coords.facebook }}" target="_blank" rel="noopener noreferrer">Facebook</a></li>{% endif %}
+                </ul>
+            {% endwith %}
         </footer>
 
         {# Global javascript #}
