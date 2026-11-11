@@ -39,7 +39,7 @@ img {
 }
 
 .header__logo {
-    width: 60px;
+    width: 140px;
     height: auto;
 }
 
@@ -49,12 +49,17 @@ img {
 }
 
 .header__nav a {
-    text-decoration: none;
+    text-decoration: none;           /* enlève le soulignage */
     color: #5a2a3a;                  /* brun-rose foncé */
 }
 
+.header__nav a[aria-current="page"] {
+    font-weight: bold;
+    color: #a8566b;                  /* rose soutenu : contraste suffisant */
+}
+
 .header__nav a:hover {
-    text-decoration: underline;      /* souligne quand la souris passe dessus */
+    color: #a8566b;                  /* le lien devient rose au survol, sans soulignage */
 }
 
 /* Bannière */
@@ -162,13 +167,14 @@ img {
 .footer__coordonnees {
     justify-content: center;         /* centre les éléments de la liste */
 }
+
 .footer a {
-    color: #d4a5b0;                  /* rose poudré */
+    color: #5a2a3a;                  /* même couleur que le menu du header */
     text-decoration: none;           /* enlève le soulignage */
 }
 
 .footer a:hover {
-    text-decoration: underline;      /* souligne quand la souris passe dessus */
+    color: #a8566b;                  /* rose au survol, comme dans le menu */
 }
 
 /* Une carte */
@@ -214,7 +220,11 @@ img {
         justify-content: center;     /* centrés */
     }
 
-        .histoire {
+    .header__logo {
+        width: 100px;                /* un peu plus petit sur téléphone */
+    }
+    
+    .histoire {
         flex-direction: column;      /* photo au-dessus, texte en dessous */
     }
 
