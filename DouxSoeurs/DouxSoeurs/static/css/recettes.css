@@ -43,13 +43,6 @@
     gap: 2rem;
 }
 
-.carte__lien {
-    display: inline-block;           /* permet d'ajouter de l'espace autour */
-    margin-bottom: 1.5rem;
-    color: #5a2a3a;
-    font-weight: bold;
-}
-
 /* Fiche d'une recette */
 .fiche {
     max-width: 800px;                /* colonne de lecture confortable */

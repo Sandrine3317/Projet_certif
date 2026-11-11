@@ -3,7 +3,9 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
-
+from modelcluster.fields import ParentalKey
+from wagtail.admin.panels import FieldRowPanel, InlinePanel, MultiFieldPanel
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 
 class PatisseriesIndexPage(Page):
     def get_context(self, request, *args, **kwargs):
@@ -23,7 +25,16 @@ class Patisserie(models.Model):
         null=True,
         blank=True,
     ) 
-    ordre = models.IntegerField(default=0)   
+    ordre = models.IntegerField(default=0)
+        # Recette liée (facultative) : permet d'afficher « Voir la recette » sur la carte
+    recette = models.ForeignKey(
+        "pages.RecettePage",
+        null=True,
+        blank=True,                      # facultatif : une pâtisserie peut ne pas avoir de recette
+        on_delete=models.SET_NULL,       # si la recette est supprimée, la pâtisserie reste
+        related_name="+",                # pas de lien inverse inutile
+        verbose_name="Recette liée",     # le nom affiché dans l'admin
+    ) 
 
     def __str__(self):
         return self.titre
@@ -80,6 +91,30 @@ class RecettePage(Page):
     # Une recette ne peut être créée que sous « Nos recettes »
     parent_page_types = ["pages.RecettesIndexPage"]
 
-class ContactPage(Page):
-    pass
+class ContactFormField(AbstractFormField):
+    # Chaque champ du formulaire est rattaché à la page Contact
+    page = ParentalKey(
+        "ContactPage",
+        on_delete=models.CASCADE, 
+        related_name="form_fields")
+
+
+class ContactPage(AbstractEmailForm):
+    intro = RichTextField(blank=True, verbose_name="Texte d'introduction")
+    texte_rgpd = RichTextField(blank=True, verbose_name="Texte RGPD")
+    message_remerciement = RichTextField(blank=True, verbose_name="Message de remerciement")
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel("intro"),
+        InlinePanel("form_fields", label="Champs du formulaire"),
+        FieldPanel("texte_rgpd"),
+        FieldPanel("message_remerciement"),
+        MultiFieldPanel(
+            [
+                FieldRowPanel([FieldPanel("from_address"), FieldPanel("to_address")]),
+                FieldPanel("subject"),
+            ],
+            heading="Envoi de l'e-mail",
+        ),
+    ]
 

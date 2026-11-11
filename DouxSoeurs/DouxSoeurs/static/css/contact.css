@@ -1,0 +1,68 @@
+/* Page Contact */
+.contact {
+    max-width: 600px;                /* colonne étroite : plus agréable pour un formulaire */
+    margin: 0 auto;                  /* centre le bloc dans la page */
+    padding: 2rem;
+}
+
+.contact__titre {
+    text-align: center;
+    color: #5a2a3a;
+}
+
+.contact__intro,
+.contact__merci {
+    text-align: center;
+}
+
+.contact__retour {
+    text-align: center;
+}
+
+/* Le formulaire */
+.formulaire {
+    padding: 1.5rem;
+    background-color: #fff5f7;       /* rose très clair */
+    border-radius: 1rem;
+}
+
+.formulaire__champ {
+    margin-bottom: 1rem;
+}
+
+.formulaire label {
+    display: block;                  /* le libellé passe au-dessus du champ */
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+    color: #5a2a3a;
+}
+
+.formulaire input[type="text"],
+.formulaire input[type="email"],
+.formulaire select,
+.formulaire textarea {
+    width: 100%;                     /* les champs prennent toute la largeur */
+    padding: 0.6rem;
+    border: 1px solid #d4a5b0;       /* bord rose poudré */
+    border-radius: 0.5rem;
+    font-family: inherit;            /* même police que le reste du site */
+    font-size: 1rem;
+}
+
+.formulaire__rgpd {
+    margin: 1rem 0;
+    font-size: 0.9rem;               /* texte légal un peu plus petit */
+}
+
+.formulaire .errorlist {
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;                /* enlève les puces des erreurs */
+    color: #b00020;                  /* rouge : on voit tout de suite l'erreur */
+}
+
+.formulaire button {
+    border: none;                    /* un <button> a une bordure par défaut */
+    cursor: pointer;                 /* la main au survol */
+    font-size: 1rem;
+}

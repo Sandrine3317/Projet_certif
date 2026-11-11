@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-patisseries{% endblock %}
 {% block extra_css %}
@@ -20,6 +20,10 @@
                 {% endif %}
                 <h2 class="carte__titre">{{ patisserie.titre }}</h2>
                 <p class="carte__description">{{ patisserie.description }}</p>
+                {# Le lien n'apparaît que si une recette est liée #}
+                {% if patisserie.recette %}
+                <a href="{% pageurl patisserie.recette %}" class="carte__lien">Voir la recette</a>
+                {% endif %}
             </article>
         {% endfor %}
     </div>
