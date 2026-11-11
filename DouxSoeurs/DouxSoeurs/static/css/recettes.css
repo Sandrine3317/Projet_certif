@@ -1,0 +1,91 @@
+/* Page Nos recettes */
+.recettes {
+    padding: 2rem;
+    max-width: 1100px;               /* la page ne devient pas trop large */
+    margin: 0 auto;                  /* centre le bloc dans la page */
+}
+
+.recettes__titre {
+    text-align: center;
+    color: #5a2a3a;
+}
+
+/* Recette mise en valeur */
+.vedette {
+    display: flex;                   /* photo à gauche, texte à droite */
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;             /* espace avant les autres recettes */
+    padding: 1.5rem;
+    background-color: #fff5f7;       /* rose très clair */
+    border-radius: 1rem;
+}
+
+.vedette__photo {
+    width: 50%;                      /* la photo prend la moitié */
+    height: auto;
+    border-radius: 1rem;
+}
+
+.vedette__texte {
+    flex: 1;                         /* le texte prend la place restante */
+    text-align: center;
+}
+
+.vedette__titre {
+    color: #5a2a3a;
+}
+
+/* Les autres recettes */
+.recettes__liste {
+    display: grid;                   /* même grille que les pâtisseries */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.carte__lien {
+    display: inline-block;           /* permet d'ajouter de l'espace autour */
+    margin-bottom: 1.5rem;
+    color: #5a2a3a;
+    font-weight: bold;
+}
+
+/* Fiche d'une recette */
+.fiche {
+    max-width: 800px;                /* colonne de lecture confortable */
+    margin: 0 auto;                  /* centre la fiche dans la page */
+    padding: 2rem;
+}
+
+.fiche__retour {
+    color: #5a2a3a;
+    text-decoration: none;           /* enlève le soulignage */
+}
+
+.fiche__retour:hover {
+    text-decoration: underline;      /* souligne au survol */
+}
+
+.fiche__titre {
+    text-align: center;
+    color: #5a2a3a;
+}
+
+.fiche__photo {
+    display: block;                  /* enlève le petit espace sous l'image */
+    width: 100%;                     /* prend toute la largeur de la fiche */
+    height: auto;
+    border-radius: 1rem;             /* coins arrondis */
+}
+
+.fiche__bloc {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff5f7;       /* rose très clair */
+    border-radius: 1rem;
+}
+
+.fiche__bloc h2 {
+    margin-top: 0;                   /* pas d'espace au-dessus du titre du bloc */
+    color: #5a2a3a;
+}

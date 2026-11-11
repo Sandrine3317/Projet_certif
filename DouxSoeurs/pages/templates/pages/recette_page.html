@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-recette{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/recettes.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<article class="fiche">
+    {# Lien pour revenir à la liste (page parent) #}
+    <a href="{% pageurl page.get_parent %}" class="fiche__retour">← Toutes nos recettes</a>
+
+    <h1 class="fiche__titre">{{ page.title }}</h1>
+
+    {% if page.photo %}
+        {% image page.photo fill-800x500 class="fiche__photo" alt=page.title %}
+    {% endif %}
+
+    <section class="fiche__bloc">
+        <h2>Ingrédients</h2>
+        {{ page.ingredients|richtext }}
+    </section>
+
+    <section class="fiche__bloc">
+        <h2>Préparation</h2>
+        {{ page.preparation|richtext }}
+    </section>
+</article>
+{% endblock content %}

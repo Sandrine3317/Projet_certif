@@ -170,3 +170,26 @@ img {
 .footer a:hover {
     text-decoration: underline;      /* souligne quand la souris passe dessus */
 }
+
+/* Une carte */
+.carte {
+    background-color: #fff5f7;       /* rose très clair */
+    border-radius: 1rem;             /* coins arrondis */
+    overflow: hidden;                /* la photo suit les coins arrondis */
+    text-align: center;
+}
+
+.carte__photo {
+    display: block;                  /* enlève le petit espace sous l'image */
+    width: 100%;                     /* la photo prend toute la largeur de la carte */
+    height: auto;
+}
+
+.carte__titre {
+    margin: 1rem 1rem 0.5rem;
+    color: #5a2a3a;
+}
+
+.carte__description {
+    margin: 0 1rem 1.5rem;
+}

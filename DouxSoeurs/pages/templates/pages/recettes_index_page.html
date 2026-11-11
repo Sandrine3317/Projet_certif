@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-recettes{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/recettes.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="recettes">
+    <h1 class="recettes__titre">{{ page.title }}</h1>
+
+    {# La recette mise en valeur (choisie dans l'admin) #}
+    {% if page.recette_vedette %}
+        {% with vedette=page.recette_vedette %}
+        <article class="vedette">
+            {% if vedette.photo %}
+                {% image vedette.photo fill-600x400 class="vedette__photo" alt=vedette.title %}
+            {% endif %}
+            <div class="vedette__texte">
+                <h2 class="vedette__titre">{{ vedette.title }}</h2>
+                <a href="{% pageurl vedette %}" class="bouton">Voir la recette</a>
+            </div>
+        </article>
+        {% endwith %}
+    {% endif %}
+
+    {# Les autres recettes : une carte par recette #}
+    <div class="recettes__liste">
+        {% for recette in recettes %}
+            <article class="carte">
+                {% if recette.photo %}
+                    {% image recette.photo fill-400x300 class="carte__photo" alt=recette.title %}
+                {% endif %}
+                <h2 class="carte__titre">{{ recette.title }}</h2>
+                <a href="{% pageurl recette %}" class="carte__lien">Voir la recette</a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}
