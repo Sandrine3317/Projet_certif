@@ -67,6 +67,9 @@
                     {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
                     {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
                     {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
+                </ul>
+
+                <ul class="footer__reseaux">
                     {% if coords.instagram %}<li><a href="{{ coords.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)">Instagram</a></li>{% endif %}
                     {% if coords.facebook %}<li><a href="{{ coords.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook (nouvel onglet)">Facebook</a></li>{% endif %}
                 </ul>

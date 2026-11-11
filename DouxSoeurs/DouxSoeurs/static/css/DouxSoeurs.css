@@ -76,8 +76,9 @@ img {
     display: block;                  /* enlève le petit espace sous l'image */
     width: 100%;
     aspect-ratio: 21 / 9;            /* la hauteur suit la largeur : même forme que ta photo */
+    max-height: 450px;               /* La banniere ne dépasse jamais 450pxl de haut
     object-fit: cover;               /* l'image remplit le cadre sans être déformée */
-    object-position: center;     /* garde le haut de l'image : pour voir les visages */
+    object-position: center 30%;     /* garde le haut de l'image : pour voir les visages */
 }
 
 .banniere__titre {
@@ -163,6 +164,18 @@ img {
     margin: 0;
     padding: 0;
 }
+
+.footer__reseaux {
+    list-style: none;                /* enlève les puces */
+    display: flex;
+    justify-content: center;         /* centrés */
+    gap: 2rem;                       /* espace entre Instagram et Facebook */
+    max-width: 200px;                /* le trait de séparation reste court */
+    margin: 1rem auto 0;             /* centré, avec de l'espace au-dessus */
+    padding: 1rem 0 0;
+    border-top: 1px solid #e8c8d0;   /* petit trait rose pâle qui sépare les deux groupes */
+}
+
 /* Footer */
 .footer {
     padding: 2rem;
@@ -176,6 +189,17 @@ img {
 
 .footer__coordonnees {
     justify-content: center;         /* centre les éléments de la liste */
+}
+
+.footer__reseaux {
+    list-style: none;                /* enlève les puces */
+    display: flex;
+    justify-content: center;         /* centrés */
+    gap: 2rem;                       /* espace entre Instagram et Facebook */
+    max-width: 200px;                /* le trait de séparation reste court */
+    margin: 1rem auto 0;             /* centré, avec de l'espace au-dessus */
+    padding: 1rem 0 0;
+    border-top: 1px solid #e8c8d0;   /* petit trait rose pâle qui sépare les deux groupes */
 }
 
 .footer a {
