@@ -166,6 +166,8 @@ img {
 .bouton:hover {
     background-color: #d4a5b0;       /* rose poudré quand la souris passe dessus */
 }
+
+/* Footer */
 .footer__coordonnees {
     list-style: none;   /* enlève les puces */
     display: flex;      /* met les éléments côte à côte */
@@ -186,7 +188,6 @@ img {
     border-top: 1px solid #e8c8d0;   /* petit trait rose pâle qui sépare les deux groupes */
 }
 
-/* Footer */
 .footer {
     padding: 2rem;
     background-color: #fff5f7;
@@ -219,6 +220,11 @@ img {
 
 .footer a:hover {
     color: #a8566b;                  /* rose au survol, comme dans le menu */
+}
+
+.footer__legal {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;               /* un peu plus petit : lien discret */
 }
 
 /* Une carte */

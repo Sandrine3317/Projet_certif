@@ -73,6 +73,12 @@
                     {% if coords.instagram %}<li><a href="{{ coords.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)">Instagram</a></li>{% endif %}
                     {% if coords.facebook %}<li><a href="{{ coords.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook (nouvel onglet)">Facebook</a></li>{% endif %}
                 </ul>
+
+                {# Lien vers la politique de confidentialité (page cherchée par son slug) #}
+                {% slugurl "confidentialite" as lien_confidentialite %}
+                {% if lien_confidentialite %}
+                    <p class="footer__legal"><a href="{{ lien_confidentialite }}">Politique de confidentialité</a></p>
+                {% endif %}       
             {% endwith %}
         </footer>
 

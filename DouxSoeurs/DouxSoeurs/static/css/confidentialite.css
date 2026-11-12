@@ -1,0 +1,25 @@
+/* Page Politique de confidentialité */
+.texte-legal {
+    max-width: 800px;                /* colonne de lecture confortable */
+    margin: 0 auto;                  /* centrée dans la page */
+    padding: 2rem;
+}
+
+.texte-legal__titre {
+    text-align: center;
+    color: #5a2a3a;
+}
+
+.texte-legal__corps h2 {
+    margin: 2rem 0 0.5rem;           /* espace avant chaque rubrique */
+    color: #5a2a3a;
+    font-size: 1.3rem;
+}
+
+.texte-legal__corps ul {
+    padding-left: 1.5rem;            /* retrait des listes à puces */
+}
+
+.texte-legal__corps a {
+    color: #5a2a3a;                  /* liens de la même couleur que le menu */
+}

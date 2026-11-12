@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-confidentialite{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/confidentialite.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<article class="texte-legal">
+    <h1 class="texte-legal__titre">{{ page.title }}</h1>
+
+    {# Le contenu est écrit dans l'admin : titres, paragraphes et listes #}
+    <div class="texte-legal__corps">
+        {{ page.corps|richtext }}
+    </div>
+</article>
+{% endblock content %}

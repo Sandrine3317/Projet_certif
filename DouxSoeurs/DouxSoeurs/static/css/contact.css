@@ -54,6 +54,16 @@
     font-size: 0.9rem;               /* texte légal un peu plus petit */
 }
 
+.formulaire__lien {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.formulaire__lien a {
+    color: #5a2a3a;
+}
+
 .formulaire .errorlist {
     margin: 0.25rem 0 0;
     padding: 0;

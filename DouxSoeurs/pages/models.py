@@ -167,6 +167,22 @@ class ContactPage(AbstractEmailForm):
         ),
     ]
 
+class ConfidentialitePage(Page):
+    """Page légale « Politique de confidentialité » (RGPD), liée depuis le footer et le formulaire."""
+
+    # Le texte est modifiable dans l'admin (titres, paragraphes, listes)
+    corps = RichTextField(blank=True, verbose_name="Contenu")
+
+    content_panels = Page.content_panels + [
+        FieldPanel("corps"),
+    ]
+
+    # Une seule page de ce type, créée sous l'accueil
+    max_count = 1
+    parent_page_types = ["home.HomePage"]
+    subpage_types = []
+
+
 @register_setting(icon="mail")  # apparaît dans l'admin : Paramètres > Coordonnées
 class CoordonneesSettings(BaseSiteSetting):
     adresse = models.CharField(max_length=255, blank=True)

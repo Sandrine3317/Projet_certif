@@ -34,6 +34,11 @@
         {# Texte RGPD écrit dans l'admin #}
         <div class="formulaire__rgpd">{{ page.texte_rgpd|richtext }}</div>
 
+        {% slugurl "confidentialite" as lien_confidentialite %}
+        {% if lien_confidentialite %}
+            <p class="formulaire__lien">Pour en savoir plus, consultez notre <a href="{{ lien_confidentialite }}">politique de confidentialité</a></p>
+        {% endif %}
+
         <button type="submit" class="bouton">Envoyer le message ♥</button>
     </form>
 
