@@ -20,7 +20,7 @@
             {% endif %}
             <div class="vedette__texte">
                 <h2 class="vedette__titre">{{ vedette.title }}</h2>
-                <a href="{% pageurl vedette %}" class="bouton">Voir la recette</a>
+                <a href="{% pageurl vedette %}" class="bouton">Voir la recette<span class="visuellement-cache"> {{ vedette.title }}</span></a>
             </div>
         </article>
         {% endwith %}
@@ -38,7 +38,7 @@
                     {% image recette.photo fill-400x300 class="carte__photo" alt=recette.title %}
                 {% endif %}
                 <h3 class="carte__titre">{{ recette.title }}</h3>
-                <a href="{% pageurl recette %}" class="carte__lien">Voir la recette</a>
+                <a href="{% pageurl recette %}" class="carte__lien">Voir la recette<span class="visuellement-cache"> {{ recette.title }}</span></a>
             </article>
         {% endfor %}
     </div>

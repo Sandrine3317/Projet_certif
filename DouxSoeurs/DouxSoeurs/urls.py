@@ -1,14 +1,27 @@
 from django.conf import settings
+from django.http import HttpResponse
 from django.urls import include, path
 from django.contrib import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
+from wagtail.contrib.sitemaps.views import sitemap
 
 from search import views as search_views
 
+def robots_txt(request):
+    # Dit aux moteurs de recherche : tout le site est explorable, sauf l'administration, et voici le sitemap
+    contenu = (
+        "User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: "
+        + request.build_absolute_uri("/sitemap.xml")
+    )
+    return HttpResponse(contenu, content_type="text/plain")
+
+
 urlpatterns = [
+    path("sitemap.xml", sitemap),   # liste de toutes les pages publiées
+    path("robots.txt", robots_txt),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),

@@ -164,7 +164,18 @@ img {
 }
 
 .bouton:hover {
-    background-color: #d4a5b0;       /* rose poudré quand la souris passe dessus */
+    background-color: #a8566b;       /* rose soutenu au survol : le texte blanc reste lisible (contraste 5:1) */
+}
+
+/* Texte lu par les lecteurs d'écran mais invisible à l'écran
+   (ex : « Voir la recette » + nom du gâteau, pour que chaque lien soit compréhensible seul) */
+.visuellement-cache {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 /* Footer */

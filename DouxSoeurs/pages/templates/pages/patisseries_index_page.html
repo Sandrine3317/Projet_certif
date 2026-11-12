@@ -22,7 +22,7 @@
                 <p class="carte__description">{{ patisserie.description }}</p>
                 {# Le lien n'apparaît que si une recette est liée #}
                 {% if patisserie.recette %}
-                <a href="{% pageurl patisserie.recette %}" class="carte__lien">Voir la recette</a>
+                <a href="{% pageurl patisserie.recette %}" class="carte__lien">Voir la recette<span class="visuellement-cache"> {{ patisserie.titre }}</span></a>
                 {% endif %}
             </article>
         {% endfor %}

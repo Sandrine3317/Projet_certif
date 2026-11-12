@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     "wagtail.contrib.forms",
     "wagtail.contrib.settings",
     "wagtail.contrib.redirects",
+    "django.contrib.sitemaps",      # SEO : génère le sitemap.xml
+    "wagtail.contrib.sitemaps",     # SEO : liste les pages Wagtail publiées
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
