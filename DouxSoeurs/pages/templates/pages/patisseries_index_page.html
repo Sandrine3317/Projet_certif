@@ -23,6 +23,9 @@
                 {# Le lien n'apparaît que si une recette est liée #}
                 {% if patisserie.recette %}
                 <a href="{% pageurl patisserie.recette %}" class="carte__lien">Voir la recette<span class="visuellement-cache"> {{ patisserie.titre }}</span></a>
+                {% else %}
+                {# Pas de recette liée : on le dit au visiteur plutôt que de laisser un vide #}
+                <p class="carte__bientot">Recette bientôt disponible</p>
                 {% endif %}
             </article>
         {% endfor %}

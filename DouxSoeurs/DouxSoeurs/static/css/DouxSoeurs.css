@@ -244,6 +244,8 @@ img {
     border-radius: 1rem;             /* coins arrondis */
     overflow: hidden;                /* la photo suit les coins arrondis */
     text-align: center;
+    border: 1px solid #d4a5b0;       /* fin cadre rose : la carte se détache du fond ivoire */
+    box-shadow: 0 2px 8px rgba(90, 42, 58, 0.15);   /* légère ombre pour donner du relief */
 }
 
 .carte__photo {
@@ -266,6 +268,13 @@ img {
     margin-bottom: 1.5rem;
     color: #5a2a3a;
     font-weight: bold;
+}
+
+/* Message sur une carte sans recette */
+.carte__bientot {
+    margin: 0 1rem 1.5rem;
+    color: #5a2a3a;
+    font-style: italic;
 }
 
 /* Téléphone : écrans de 700px de large ou moins */

@@ -19,6 +19,7 @@
                 {% image vedette.photo fill-600x400 class="vedette__photo" alt=vedette.title %}
             {% endif %}
             <div class="vedette__texte">
+                <p class="vedette__etiquette">Recette du moment</p>
                 <h2 class="vedette__titre">{{ vedette.title }}</h2>
                 <a href="{% pageurl vedette %}" class="bouton">Voir la recette<span class="visuellement-cache"> {{ vedette.title }}</span></a>
             </div>

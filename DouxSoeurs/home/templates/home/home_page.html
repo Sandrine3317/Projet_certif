@@ -13,7 +13,7 @@
     <h1 class="banniere__titre">Fait maison, avec amour et gourmandise</h1>
 </section>
 
-<section class="soeurs">
+<div class="soeurs">
     <figure class="soeur">
         <img src="{% static "images/sandrine.jpg" %}" alt="Portrait de Sandrine" class="soeur__photo">
         <figcaption>
@@ -27,7 +27,7 @@
             <strong>Lucie</strong><br>La créative
         </figcaption>
     </figure>
-</section> 
+</div>
 
 <section class="histoire">
     <img src="{% static "images/histoire.jpg" %}" alt="Photo de famille autour de la pâtisserie" class="histoire__photo">
@@ -41,9 +41,9 @@
 </div>
 </section>
 
-<section class="actions">
+<div class="actions">
     <a href="/patisseries/" class="bouton">Découvrir nos pâtisseries</a>
     <a href="/recettes/" class="bouton">Voir nos recettes</a>
     <a href="/contact/" class="bouton">Infos sur les ateliers</a>
-</section>
+</div>
 {% endblock content %}
