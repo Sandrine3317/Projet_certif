@@ -86,7 +86,7 @@ img {
     display: block;                  /* enlève le petit espace sous l'image */
     width: 100%;
     aspect-ratio: 21 / 9;            /* la hauteur suit la largeur : même forme que ta photo */
-    max-height: 450px;               /* La banniere ne dépasse jamais 450pxl de haut
+    max-height: 450px;               /* La bannière ne dépasse jamais 450px de haut */
     object-fit: cover;               /* l'image remplit le cadre sans être déformée */
     object-position: center 30%;     /* garde le haut de l'image : pour voir les visages */
 }
