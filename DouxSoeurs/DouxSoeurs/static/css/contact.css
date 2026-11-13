@@ -79,6 +79,12 @@
     font-size: 1rem;
 }
 
+.formulaire__aide {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: #5a2a3a;
+    font-style: italic;
+}
 
 /* Coordonnées sous le formulaire */
 .contact__coordonnees {

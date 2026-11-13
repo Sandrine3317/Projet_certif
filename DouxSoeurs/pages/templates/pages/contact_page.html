@@ -27,6 +27,9 @@
             <div class="formulaire__champ">
                 {{ field.label_tag }}
                 {{ field }}
+                {% if field.help_text %}
+                    <p class="formulaire__aide">{{field.help_text }}</p>
+                {% endif %}
                 {{ field.errors }}  {# message d'erreur si le champ est mal rempli #}
             </div>
         {% endfor %}
