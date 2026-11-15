@@ -178,50 +178,91 @@ img {
     white-space: nowrap;
 }
 
-/* Footer */
-.footer__coordonnees {
-    list-style: none;   /* enlève les puces */
-    display: flex;      /* met les éléments côte à côte */
-    flex-wrap: wrap;    /* passe à la ligne si pas assez de place */
-    gap: 1rem;
+/* Footer : trois colonnes (nom, coordonnées, réseaux) puis une ligne en bas */
+.footer {
+    padding: 2rem;
+    background-color: #fff5f7;
+}
+
+.footer__haut {
+    display: flex;                   /* les colonnes côte à côte */
+    flex-wrap: wrap;                 /* elles passent les unes sous les autres sur téléphone */
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer__col {
+    flex: 1 1 200px;                 /* chaque colonne prend la place disponible */
+}
+
+.footer__nom {
+    margin: 0 0 0.5rem;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5a2a3a;
+}
+
+.footer__slogan {
+    margin: 0;
+}
+
+.footer__titre {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: #5a2a3a;
+}
+
+.footer__liste {
+    list-style: none;                /* enlève les puces */
     margin: 0;
     padding: 0;
 }
 
-.footer__reseaux {
-    list-style: none;                /* enlève les puces */
-    display: flex;
-    justify-content: center;         /* centrés */
-    gap: 2rem;                       /* espace entre Instagram et Facebook */
-    max-width: 200px;                /* le trait de séparation reste court */
-    margin: 1rem auto 0;             /* centré, avec de l'espace au-dessus */
-    padding: 1rem 0 0;
-    border-top: 1px solid #e8c8d0;   /* petit trait rose pâle qui sépare les deux groupes */
-}
-
-.footer {
-    padding: 2rem;
-    background-color: #fff5f7;
-    text-align: center;              /* centre le texte */
-}
-
-.footer__signature {
-    margin: 0 0 1rem;                /* espace sous la signature */
-}
-
-.footer__coordonnees {
-    justify-content: center;         /* centre les éléments de la liste */
+.footer__liste li {
+    margin-bottom: 0.25rem;
 }
 
 .footer__reseaux {
-    list-style: none;                /* enlève les puces */
+    list-style: none;
     display: flex;
-    justify-content: center;         /* centrés */
-    gap: 2rem;                       /* espace entre Instagram et Facebook */
-    max-width: 200px;                /* le trait de séparation reste court */
-    margin: 1rem auto 0;             /* centré, avec de l'espace au-dessus */
-    padding: 1rem 0 0;
-    border-top: 1px solid #e8c8d0;   /* petit trait rose pâle qui sépare les deux groupes */
+    gap: 0.75rem;                    /* espace entre les ronds */
+    margin: 0;
+    padding: 0;
+}
+
+.footer__rond {
+    display: flex;                   /* centre la lettre dans le rond */
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;              /* rond */
+    border: 2px solid #5a2a3a;
+    font-weight: bold;
+}
+
+.footer .footer__rond:hover {
+    background-color: #5a2a3a;       /* le rond se remplit au survol */
+    color: #fff;
+}
+
+.footer__bas {
+    display: flex;                   /* copyright à gauche, lien légal à droite */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    max-width: 1100px;
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid #d4a5b0;   /* trait rose qui sépare le bas du footer */
+    font-size: 0.9rem;
+}
+
+.footer__bas p {
+    margin: 0;
 }
 
 .footer a {
@@ -231,11 +272,6 @@ img {
 
 .footer a:hover {
     color: #a8566b;                  /* rose au survol, comme dans le menu */
-}
-
-.footer__legal {
-    margin: 1rem 0 0;
-    font-size: 0.9rem;               /* un peu plus petit : lien discret */
 }
 
 /* Une carte */

@@ -57,28 +57,44 @@
         </main>
 
         <footer class="footer">
-            <p class="footer__signature">
-                <strong>Doux-Sœurs sucrées</strong> • © {% now "Y" %} • <em>"Fait maison, avec amour"</em>
-            </p>
-
             {# Coordonnées modifiables dans l'admin : Paramètres > Coordonnées #}
             {% with coords=settings.pages.CoordonneesSettings %}
-                <ul class="footer__coordonnees">
-                    {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
-                    {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
-                    {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
-                </ul>
+                <div class="footer__haut">
+                    <div class="footer__col">
+                        <p class="footer__nom">Doux-Sœurs sucrées</p>
+                        <p class="footer__slogan"><em>Fait maison, avec amour</em></p>
+                    </div>
 
-                <ul class="footer__reseaux">
-                    {% if coords.instagram %}<li><a href="{{ coords.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)">Instagram</a></li>{% endif %}
-                    {% if coords.facebook %}<li><a href="{{ coords.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook (nouvel onglet)">Facebook</a></li>{% endif %}
-                </ul>
+                    {% if coords.adresse or coords.telephone or coords.email %}
+                        <div class="footer__col">
+                            <h2 class="footer__titre">Coordonnées</h2>
+                            <ul class="footer__liste">
+                                {% if coords.adresse %}<li>{{ coords.adresse }}</li>{% endif %}
+                                {% if coords.telephone %}<li><a href="tel:{{ coords.telephone }}">{{ coords.telephone }}</a></li>{% endif %}
+                                {% if coords.email %}<li><a href="mailto:{{ coords.email }}">{{ coords.email }}</a></li>{% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
 
-                {# Lien vers la politique de confidentialité (page cherchée par son slug) #}
-                {% slugurl "confidentialite" as lien_confidentialite %}
-                {% if lien_confidentialite %}
-                    <p class="footer__legal"><a href="{{ lien_confidentialite }}">Politique de confidentialité</a></p>
-                {% endif %}       
+                    {% if coords.instagram or coords.facebook %}
+                        <div class="footer__col">
+                            <h2 class="footer__titre">Suivez-nous</h2>
+                            <ul class="footer__reseaux">
+                                {% if coords.instagram %}<li><a href="{{ coords.instagram }}" class="footer__rond" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)"><span aria-hidden="true">I</span></a></li>{% endif %}
+                                {% if coords.facebook %}<li><a href="{{ coords.facebook }}" class="footer__rond" target="_blank" rel="noopener noreferrer" aria-label="Facebook (nouvel onglet)"><span aria-hidden="true">F</span></a></li>{% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="footer__bas">
+                    <p>© {% now "Y" %} Doux-Sœurs sucrées</p>
+                    {# Lien vers la politique de confidentialité (page cherchée par son slug) #}
+                    {% slugurl "confidentialite" as lien_confidentialite %}
+                    {% if lien_confidentialite %}
+                        <p><a href="{{ lien_confidentialite }}">Politique de confidentialité</a></p>
+                    {% endif %}
+                </div>
             {% endwith %}
         </footer>
 

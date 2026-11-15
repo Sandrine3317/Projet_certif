@@ -88,6 +88,8 @@
     width: 100%;                     /* prend toute la largeur de la fiche */
     height: auto;
     border-radius: 1rem;             /* coins arrondis */
+    border: 3px solid #a8566b;       /* même cadre que la recette du moment */
+    box-shadow: 0 4px 12px rgba(90, 42, 58, 0.2);
 }
 
 .fiche__bloc {
@@ -95,6 +97,8 @@
     padding: 1.5rem;
     background-color: #fff5f7;       /* rose très clair */
     border-radius: 1rem;
+    border: 2px solid #a8566b;       /* contour rose soutenu : le bloc ressort du fond ivoire */
+    box-shadow: 0 2px 8px rgba(90, 42, 58, 0.15);
 }
 
 .fiche__bloc h2 {

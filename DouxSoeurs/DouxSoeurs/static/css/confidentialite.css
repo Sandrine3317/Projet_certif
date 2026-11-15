@@ -12,8 +12,16 @@
 
 .texte-legal__corps h2 {
     margin: 2rem 0 0.5rem;           /* espace avant chaque rubrique */
+    padding-top: 1.5rem;
+    border-top: 3px solid #a8566b;   /* ligne rose soutenu entre chaque rubrique */
     color: #5a2a3a;
     font-size: 1.3rem;
+}
+
+.texte-legal__corps > h2:first-child {
+    margin-top: 0;                   /* pas de ligne avant la toute première rubrique */
+    padding-top: 0;
+    border-top: none;
 }
 
 .texte-legal__corps ul {
