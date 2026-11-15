@@ -43,8 +43,10 @@
             {% endif %}
         {% endfor %}
 
-        {# Texte RGPD écrit dans l'admin #}
-        <div class="formulaire__rgpd">{{ page.texte_rgpd|richtext }}</div>
+        {# Texte RGPD écrit dans l'admin : affiché seulement s'il y a du texte #}
+        {% if page.texte_rgpd %}
+            <div class="formulaire__rgpd">{{ page.texte_rgpd|richtext }}</div>
+        {% endif %}
 
         {% slugurl "confidentialite" as lien_confidentialite %}
         {% if lien_confidentialite %}
