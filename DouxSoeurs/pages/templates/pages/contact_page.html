@@ -24,14 +24,23 @@
 
         {# Une zone par champ créé dans l'admin #}
         {% for field in form %}
-            <div class="formulaire__champ">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.help_text %}
-                    <p class="formulaire__aide" id="{{ field.auto_id }}_helptext">{{field.help_text }}</p>
-                {% endif %}
-                {{ field.errors }}  {# message d'erreur si le champ est mal rempli #}
-            </div>
+            {% if field.field.widget.input_type == "checkbox" %}
+                {# Case à cocher : la case est placée à gauche de son libellé #}
+                <div class="formulaire__champ formulaire__champ--case">
+                    {{ field }}
+                    {{ field.label_tag }}
+                    {{ field.errors }}
+                </div>
+            {% else %}
+                <div class="formulaire__champ">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <p class="formulaire__aide" id="{{ field.auto_id }}_helptext">{{field.help_text }}</p>
+                    {% endif %}
+                    {{ field.errors }}  {# message d'erreur si le champ est mal rempli #}
+                </div>
+            {% endif %}
         {% endfor %}
 
         {# Texte RGPD écrit dans l'admin #}
