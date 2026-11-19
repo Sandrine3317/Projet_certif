@@ -27,6 +27,13 @@ class Patisserie(models.Model):
         null=True,
         blank=True,
     ) 
+    # Texte alternatif de la photo (SEO + accessibilité), rempli dans l'admin
+    photo_alt = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Description de la photo",
+        help_text="Décrit ce que montre la photo (ex. « Fraisier entier et une part sur une assiette »). Utilisé par Google et les lecteurs d'écran.",
+    )
     ordre = models.IntegerField(default=0)
         # Recette liée (facultative) : permet d'afficher « Voir la recette » sur la carte
     recette = models.ForeignKey(
@@ -79,6 +86,13 @@ class RecettePage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    # Texte alternatif de la photo (SEO + accessibilité), rempli dans l'admin
+    photo_alt = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Description de la photo",
+        help_text="Décrit ce que montre la photo (ex. « Fraisier entier et une part sur une assiette »). Utilisé par Google et les lecteurs d'écran.",
+    )
     # Introduction courte de la recette
     introduction = models.TextField(blank=True, verbose_name="Introduction")
 
@@ -120,6 +134,7 @@ class RecettePage(Page):
     # Les champs visibles dans l'admin
     content_panels = Page.content_panels + [
         FieldPanel("photo"),
+        FieldPanel("photo_alt"),
         FieldPanel("introduction"),
         MultiFieldPanel(
             [

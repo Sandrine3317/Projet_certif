@@ -16,7 +16,7 @@
         {% with vedette=page.recette_vedette %}
         <article class="vedette">
             {% if vedette.photo %}
-                {% image vedette.photo fill-600x400 class="vedette__photo" alt=vedette.title %}
+                {% image vedette.photo fill-600x400 format-webp class="vedette__photo" alt=vedette.photo_alt|default:vedette.title %}
             {% endif %}
             <div class="vedette__texte">
                 <p class="vedette__etiquette">Recette du moment</p>
@@ -36,7 +36,7 @@
         {% for recette in recettes %}
             <article class="carte">
                 {% if recette.photo %}
-                    {% image recette.photo fill-400x300 class="carte__photo" alt=recette.title %}
+                    {% image recette.photo fill-400x300 format-webp class="carte__photo" alt=recette.photo_alt|default:recette.title loading="lazy" %}
                 {% endif %}
                 <h3 class="carte__titre">{{ recette.title }}</h3>
                 <a href="{% pageurl recette %}" class="carte__lien">Voir la recette<span class="visuellement-cache"> {{ recette.title }}</span></a>

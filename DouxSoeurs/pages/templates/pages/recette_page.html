@@ -15,7 +15,7 @@
     <h1 class="fiche__titre">{{ page.title }}</h1>
 
     {% if page.photo %}
-        {% image page.photo fill-800x500 class="fiche__photo" alt=page.title %}
+        {% image page.photo fill-800x500 format-webp class="fiche__photo" alt=page.photo_alt|default:page.title %}
     {% endif %}
 
     {# Introduction de la recette #}
